@@ -1,4 +1,4 @@
-require "#{Rails.root}/config/webistrano_config"
+require "#{Rails.root}/config/webistrano_config.rb"
 
 if WebistranoConfig[:authentication_method] == :cas
   cas_options = YAML::load_file(Rails.root+'/config/cas.yml')
