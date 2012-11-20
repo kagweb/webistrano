@@ -64,6 +64,7 @@ group :assets do
   gem 'compass-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'less-rails'
 
   gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails'
 end
