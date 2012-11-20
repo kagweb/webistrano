@@ -11,6 +11,8 @@ gem 'version_fu', :github => 'jmckible/version_fu'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'haml'
+gem 'execjs', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
@@ -25,6 +27,7 @@ group :development do
   gem 'pry-rails'
 
   gem 'tapp'
+  gem 'heroku'
 end
 
 group :test do
@@ -43,11 +46,14 @@ group :test do
   gem 'guard-test'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'heroku'
 end
 
 group :production do
-  gem 'mysql2'
-  gem 'unicorn'
+  gem 'pg'
+  gem 'thin'
+  # gem 'mysql2'
+  # gem 'unicorn'
 end
 
 group :assets do
