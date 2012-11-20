@@ -1,3 +1,4 @@
+$:.unshift File.dirname(__FILE__)
 require "#{Rails.root}/config/webistrano_config.rb"
 
 if WebistranoConfig[:authentication_method] == :cas
