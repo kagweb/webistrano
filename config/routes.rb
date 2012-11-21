@@ -1,6 +1,8 @@
 Webistrano::Application.routes.draw do
   devise_for :users
-
+  devise_scope :user do
+    delete '/logout' => 'devise/sessions#destroy', as: :logout
+  end
   root :to => 'projects#dashboard'
 
   # TODO - where is this used? -- fd

@@ -41,7 +41,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><%= link_to current_user.login, user_path(current_user) %></li>
-                  <li><%= link_to 'Logout', 'devise/sessions#destroy', :method => :delete %></li>
+                  <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
                 </ul>
               </li>
               <% end -%>
