@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     if params[:id] == 'sign_out'
-      logout
+      session[:user_id] = nil
       redirect_to root_url, notice: 'Logged out.'
     else
       @user = User.find(params[:id])
