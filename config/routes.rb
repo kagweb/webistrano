@@ -42,4 +42,7 @@ Webistrano::Application.routes.draw do
       get :deployments
     end
   end
+
+  match 'login' => 'sessions#new', as: :login
+  match 'logout' => 'sessions#destroy', as: :logout
 end
