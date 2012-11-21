@@ -73,6 +73,9 @@
 
       <footer class="footer pull-right">
         <p>Copyright &copy; 2007, 2008, 2009 | Version <%= WEBISTRANO_VERSION %> <p>
+        <% if current_user %>
+          | Logged in as <%= link_to current_user.login, user_path(current_user) %> | <%= link_to 'Logout', logout_path %> 
+        <% end %>
       </footer>
     </div>
 
