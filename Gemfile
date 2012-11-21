@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'rake', '0.8.7'
 
-gem 'exception_notification'
+gem 'exception_notification', git: 'git://github.com/alanjds/exception_notification.git'
 
 gem 'capistrano', '~> 2.13'
 gem 'open4',      '0.9.3'

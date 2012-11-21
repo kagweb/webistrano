@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/alanjds/exception_notification.git
+  revision: 048fc6be972189e62ca3b9453d19233ec5773016
+  specs:
+    exception_notification (2.6.1)
+      actionmailer (>= 3.0.4)
+      tinder (~> 1.8)
+
+GIT
   remote: git://github.com/jmckible/version_fu.git
   revision: cabbc76b726f5afc7eeb3a3236c7036a1cbfd724
   specs:
@@ -93,9 +101,6 @@ GEM
       eventmachine (>= 0.12.9)
     erubis (2.7.0)
     eventmachine (1.0.0)
-    exception_notification (3.0.0)
-      actionmailer (>= 3.0.4)
-      tinder (~> 1.8)
     excon (0.16.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -316,7 +321,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-encryptable
-  exception_notification
+  exception_notification!
   execjs
   factory_girl_rails
   guard
