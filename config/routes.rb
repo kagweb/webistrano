@@ -41,10 +41,7 @@ Webistrano::Application.routes.draw do
     end
   end
 
-  # devise_for :users
-  devise_for :users do
-    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
-  end
+  devise_for :users
   # resources :sessions, only: [:new, :create, :destroy]
   # match 'login' => 'sessions#new', as: :login
   # match 'logout' => 'sessions#destroy', as: :logout
