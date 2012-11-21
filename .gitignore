@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
+config/*.yml
 .DS_Store
 .rake_tasks~
 vendor/bundler

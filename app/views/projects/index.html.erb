@@ -42,5 +42,5 @@
     </table>
   <% end %>
 
-  <p><%= link_to 'New project', new_project_path, :class => 'arrow_link' %></p>
+  <p><%= link_to 'New project', new_project_path, :class => 'arrow_link' if !@projects.empty?%></p>
 </section>

@@ -6,38 +6,64 @@
   different settings. Those stages can then be deployed with Capistrano
   through Webistrano.
 
+## Preliminaries:
 
-## Installation:
+### 1. Instrall heroku gem
+  Install heroku gem:
+
+    gem install heroku
+
+### 2. User registration
+  Register on heroku.com (without going into detail).
+
+
+## Deploy on Heroku:
 
 ### 1. Configuration
   Copy `config/webistrano_config.rb.sample` to `config/webistrano_config.rb`
   and edit appropriatly. In this configuration file you can set the mail
   settings of Webistrano.
 
-
-### 2. Database
-  Copy `config/database.yml.sample` to `config/database.yml` and edit to
-  resemble your setting. You need at least the production database. The others
-  are optional entries for development and testing.
-
-  Then create the database structure with Rake:
+### 2. Create heroku application
+  Create heroku application by your favorite app-name:
 
     cd webistrano
-    RAILS_ENV=production rake db:migrate
+    git checkout master
+    heroku login
+    heroku create --stack cedar app-name
 
+### 3. Bundle install
+  Install gems:
 
-### 3. Start Webistrano
-    cd webistrano
-    ruby script/server -d -p 3000 -e production
+    rm Gemfile.lock 
+    bundle install --without production
 
-  Webistrano is then available at http://localhost:3000/
+### 4. Precompile on local
+  Precompile on local:
+
+    RAILS_ENV=production bundle exec rake assets:precompile
+
+### 5. Deploy on heroku
+  Deploy on heroku:
+
+    git remote add heroku git@heroku.com:app-name.git
+    git push heroku master
+
+### 6. Create the database
+  Create the database structure with Rake on heroku:
+
+    heroku run rake db:create
+    heroku run rake db:migrate
+    heroku run rake db:seed
+
+### 7. Start Webistrano
+  Webistrano is then available at http://app-name.herokuapp.com/
 
   The default user is `admin`, the password is `admin!`. Please change the
   password after the first login.
 
-
 ## Author:
-  Jonathan Weiss <jw@innerewut.de>
+  Ichiro Kimura <kag.web@gmail.com>
   
 ## License: 
   Code: BSD, see LICENSE.txt
