@@ -66,22 +66,17 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    if params[:id] == 'sign_out'
-      session[:user_id] = nil
-      redirect_to root_url, notice: 'Logged out.'
+    @user = User.find(params[:id])
+
+    if @user.admin? && User.admins.count == 1
+      flash[:notice] = 'Can not disable last admin user.'
     else
-      @user = User.find(params[:id])
-
-      if @user.admin? && User.admins.count == 1
-        flash[:notice] = 'Can not disable last admin user.'
-      else
-        @user.disable!
-        flash[:notice] = 'User was successfully disabled.'
-        add_activity_for(@user, 'deleted')
-      end
-
-      respond_with(@user)
+      @user.disable!
+      flash[:notice] = 'User was successfully disabled.'
+      add_activity_for(@user, 'deleted')
     end
+
+    respond_with(@user)
   end
 
   def enable

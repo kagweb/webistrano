@@ -1,6 +1,4 @@
 Webistrano::Application.routes.draw do
-  devise_for :users
-
   root :to => 'projects#dashboard'
 
   # TODO - where is this used? -- fd
@@ -43,6 +41,10 @@ Webistrano::Application.routes.draw do
     end
   end
 
+  # devise_for :users
+  devise_for :users do
+    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
   # resources :sessions, only: [:new, :create, :destroy]
   # match 'login' => 'sessions#new', as: :login
   # match 'logout' => 'sessions#destroy', as: :logout
