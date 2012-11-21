@@ -1,12 +1,11 @@
 <%= form_tag sessions_path, method: :post do -%>
-
   <fieldset class="fieldset">
     <legend>Webistrano login</legend>
     <div style="float: right; padding: 20px;">
       <%= image_tag('peritor_theme/webistrano_logo_large.png', :border => '0', :width => '400', :height => '130')%>
     </div>
     <div>
-      <p><label for="User name">Login</label><br/>
+      <p><label for="login">User name</label><br/>
       <%= text_field_tag 'login' %></p>
       <p><label for="password">Password</label><br/>
       <%= password_field_tag 'password' %></p>

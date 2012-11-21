@@ -43,4 +43,6 @@ Webistrano::Application.routes.draw do
     end
   end
 
+  resources :sessions, only: [:new, :create, :destroy]
+  match 'logout' => 'sessions#destroy', as: :logout
 end
