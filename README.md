@@ -28,7 +28,6 @@
   Create heroku application by your favorite app-name:
 
     cd webistrano
-    git checkout master
     heroku login
     heroku create --stack cedar app-name
 
@@ -46,13 +45,11 @@
 ### 5. Deploy on heroku
   Deploy on heroku:
 
-    git remote add heroku git@heroku.com:app-name.git
     git push heroku master
 
 ### 6. Create the database
   Create the database structure with Rake on heroku:
 
-    heroku run rake db:create
     heroku run rake db:migrate
     heroku run rake db:seed
 
