@@ -50,8 +50,7 @@
 ### 6. Create the database
   Create the database structure with Rake on heroku:
 
-    heroku run rake db:migrate
-    heroku run rake db:seed
+    heroku run rake db:setup
 
 ### 7. Start Webistrano
   Webistrano is then available at http://app-name.herokuapp.com/
